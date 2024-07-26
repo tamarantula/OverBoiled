@@ -79,11 +79,11 @@ public class PlayerController : MonoBehaviour
 
 
     void OnStartLookingAt(GameObject obj){
-        lastlookingColor = obj.GetComponent<Renderer>().material.color;
-        obj.GetComponent<Renderer>().material.color=Color.yellow;
+        lastlookingColor = obj.GetComponentInChildren<Renderer>().material.color;
+        obj.GetComponentInChildren<Renderer>().material.color=Color.yellow;
     }
 
     void OnStopLookingAt(GameObject obj){
-        obj.GetComponent<Renderer>().material.color=lastlookingColor;
+        obj.GetComponentInChildren<Renderer>().material.color=lastlookingColor;
     }
 }
