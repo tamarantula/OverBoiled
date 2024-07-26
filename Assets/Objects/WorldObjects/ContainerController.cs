@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TableController : InteractableController
+public class ContainerController : InteractableController
 {
-    public GameObject childObject;
-    public bool isItemTable; 
+    protected GameObject childObject;
+    protected GameObject containerDummy;
+    protected bool isItemTable; 
 
-    void Start(){
-        foreach (Transform child in transform)
+    protected void Start(){
+        isItemTable = true;
+        containerDummy = transform.Find("ContainerContents").gameObject;
+        foreach (Transform child in containerDummy.transform)
         {
             if(childObject != null){
                 // fucked up during init, blow up the world.
@@ -26,15 +29,35 @@ public class TableController : InteractableController
 
     public void OnPlayerInteractItem(PlayerController p){
         if(this.childObject == null && p.carrying != null){
-            p.carrying.gameObject.transform.parent = this.transform;
+            if(!this.OnItemPlaced(p.carrying))
+                return;
+            p.carrying.gameObject.transform.parent = this.containerDummy.transform;
             this.childObject = p.carrying;
             this.childObject.transform.localPosition = new Vector3(0,0.6f,0);
             p.carrying = null;
         }else if(p.carrying == null && this.childObject != null){
+            if(!this.OnItemPlaced(this.childObject))
+                return;
             this.childObject.transform.parent = p.gameObject.transform;
             p.carrying = this.childObject;
             p.carrying.transform.localPosition = new Vector3(0,0.6f,1);
             this.childObject=null;
+        }
+    }
+
+    private bool OnItemPlaced(GameObject i){
+        if(i.GetComponent<ItemController>() == null){
+            return true;
+        }else{
+            return i.GetComponent<ItemController>().CanPlaceItem(this.gameObject);
+        }
+    }
+
+    private bool OnItemRemoved(GameObject i){
+        if(i.GetComponent<ItemController>() == null){
+            return true;
+        }else{
+            return i.GetComponent<ItemController>().CanRemoveItem(this.gameObject);
         }
     }
 }
