@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CraftableItemController : ItemController
 {
-    public 
+    public RecipeStep[] recipeSteps;
+
+    private int currentStep;
+    private int currentStepStarted;
 
     void Update()
     {

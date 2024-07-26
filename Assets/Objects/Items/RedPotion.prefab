@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5891031943246247379}
   - component: {fileID: 4480463950986327212}
   - component: {fileID: 5463089594858453710}
-  - component: {fileID: -3134547730612198468}
+  - component: {fileID: 1017684117017801899}
   m_Layer: 0
   m_Name: RedPotion
   m_TagString: Untagged
@@ -106,7 +106,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-3134547730612198468
+--- !u!114 &1017684117017801899
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2004622012596697983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c41757d367837b34b97ac220691b9867, type: 3}
+  m_Script: {fileID: 11500000, guid: ec8f74b2411603345a13a984f943cc44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recipeSteps: []
