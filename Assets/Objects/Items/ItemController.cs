@@ -9,10 +9,10 @@ public class ItemController : MonoBehaviour
         
     }
 
-    public bool CanPlaceItem(GameObject newparent){
+    public virtual bool onPlaceItem(GameObject newparent){
         return true;
     }
-    public bool CanRemoveItem(GameObject oldparent){
+    public virtual bool onRemoveItem(GameObject oldparent){
         return true;
     }
 }

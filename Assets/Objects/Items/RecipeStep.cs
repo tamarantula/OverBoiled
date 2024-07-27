@@ -5,6 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class RecipeStep
 {
-    public string required_container;
-    public int seconds_for_progress;
+    public string requiredContainer;
+    public GameObject requiredCombinationItem;
+    public float secondsOrClicksForProgress;
+    public bool requiredInteract;
 }

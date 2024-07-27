@@ -1,0 +1,7 @@
+Items:
+Frog Leg: Variants: Crushed, Boiled
+Newt Eye: Variants: Crushed, Boiled
+
+Recipes:
+Frog Leg --Mortar&Pestle--> Crushed Frog Leg --Cauldron--> Boiled Frog Leg --Distillery--> Green Potion
+Eye of Newt --Mortar&Pestle--> Crushed Newt Eye --Cauldron--> Boiled Newt Eye --Distillery--> Red Potion
