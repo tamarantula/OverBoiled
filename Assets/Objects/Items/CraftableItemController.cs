@@ -34,9 +34,7 @@ public class CraftableItemController : ItemController
         progressBar = bar.GetComponent<ProgressBarController>();
     }
  
-    void Awake(){
-        //TODO: get progress bar and current container.
-    }
+    void Awake(){}
 
     void Update()
     {
