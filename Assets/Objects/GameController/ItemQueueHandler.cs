@@ -11,7 +11,13 @@ public class ItemQueueHandler : MonoBehaviour
 
     public List<QueueItem> current_queue; 
 
-    private float seconds_since_last_gen = 30;
+    private float seconds_since_last_gen = 3;
+
+    private UIController uic;
+
+    void Start(){
+        uic = GetComponent<UIController>();
+    }
 
     void Update(){
         if(gen_randomly){
@@ -24,8 +30,10 @@ public class ItemQueueHandler : MonoBehaviour
                     input_item=new_task.input_item,
                     item_path=new_task.item_path,
                     start_time=Time.time,
-                    expiry_time=Time.time+Random.Range(new_task.min_time,new_task.max_time)
+                    expiry_time=Time.time+Random.Range(new_task.min_time,new_task.max_time),
+                    result_item=new_task.input_item.GetComponent<CraftableItemController>().recipeOptions[new_task.item_path].result
                 });
+                uic.UpdateUI(current_queue);
             }
         }
     }    
@@ -40,7 +48,7 @@ public class ItemQueueHandler : MonoBehaviour
 public class QueueItem{
     public GameObject input_item;
     public int item_path;
-
+    public GameObject result_item;
     public float start_time;
     public float expiry_time;
 }
