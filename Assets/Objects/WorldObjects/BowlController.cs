@@ -10,6 +10,7 @@ public class BowlController : InteractableController
         for(var i=0;i<5;i++){
             var new_obj = Instantiate(supply_object,transform);
             new_obj.transform.localPosition = new Vector3(Random.Range(-0.2f,0.2f),0.4f,Random.Range(-0.2f,0.2f));
+            new_obj.transform.rotation = Random.rotation;
         }
     }
 
