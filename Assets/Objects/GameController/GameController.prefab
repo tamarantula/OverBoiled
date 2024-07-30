@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1208647316982431895}
   - component: {fileID: -3375991836793999675}
   - component: {fileID: -4442525878503867367}
-  - component: {fileID: 1697926095147838979}
+  - component: {fileID: 5829974128540153816}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -65,7 +65,7 @@ MonoBehaviour:
   queueListParent: {fileID: 0}
   queueItemPrefab: {fileID: 0}
   queueObjects: []
---- !u!114 &1697926095147838979
+--- !u!114 &5829974128540153816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -77,3 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54ca3ee5f9ff0c644ba39d3cc3d9d57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  bowls: []
+  mortar_pestles: []
+  cauldrons: []
+  distilleries: []
+  plates: []

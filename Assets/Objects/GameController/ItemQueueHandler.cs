@@ -36,6 +36,17 @@ public class ItemQueueHandler : MonoBehaviour
                 uic.UpdateUI(current_queue);
             }
         }
+
+        QueueItem queue_to_del = null;
+        foreach(QueueItem qi in this.current_queue){
+            if(qi.expiry_time<Time.time){
+                queue_to_del=qi;
+                break;
+            }
+        }
+        if(queue_to_del != null){
+            current_queue.Remove(queue_to_del);
+        }
     }    
 
     public bool trySubmit(GameObject item){

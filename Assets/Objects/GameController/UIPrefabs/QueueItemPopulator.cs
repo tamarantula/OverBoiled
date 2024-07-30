@@ -1,14 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QueueItemPopulator : MonoBehaviour
 {
     private QueueItem queueItem;
 
+    private Slider progressBar;
+
+    void Start(){
+        progressBar = transform.Find("Slider").GetComponent<Slider>();
+    }
+
+    void Update(){
+        if(this.queueItem != null && Time.time<queueItem.expiry_time){
+            progressBar.minValue = queueItem.start_time;
+            progressBar.maxValue = queueItem.expiry_time;
+            progressBar.value = Time.time;
+        }
+    }
+
     public void populate(int index, QueueItem qi){
         this.queueItem = qi;
         this.transform.localPosition = new Vector3(0,-10-140*index,0);
+
+
         
         var main_item_resource = (GameObject)Resources.Load("UIItemPrefabs/"+qi.result_item.name,typeof(GameObject));
         
