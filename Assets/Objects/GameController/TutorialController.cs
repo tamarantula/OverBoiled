@@ -13,7 +13,6 @@ public class TutorialController : MonoBehaviour
 
     public enum TutorialStage {
         Movement,
-        Interaction,
         PickupBowl,
         PlaceInMortar,
         PlaceInCauldron,
@@ -21,7 +20,7 @@ public class TutorialController : MonoBehaviour
         SubmitToPlate
     }
 
-    public TutorialStage curstage = TutorialStage.Movement;
+    public TutorialStage curstage = TutorialStage.PickupBowl;
 
     
 
@@ -37,6 +36,7 @@ public class TutorialController : MonoBehaviour
             else if(gname.Contains("distill")){distilleries.Add(go);}
             else if(gname.Contains("plate")){plates.Add(go);}
         }
+        DoNextStage();
     }
 
     // Update is called once per frame
@@ -45,15 +45,26 @@ public class TutorialController : MonoBehaviour
     }
 
     void DoNextStage(){
+        foreach (GameObject highlight in highlights)
+        {
+            Destroy(highlight);
+        }
         switch (curstage)
         {
             default: break;
             case TutorialStage.Movement: break;
+            case TutorialStage.PickupBowl: 
+                foreach(GameObject go in bowls){
+                    HighlightObject(go);
+                }
+                break;
         }
     }
 
-    List<GameObject> arrows;
-    void DrawArrowAboveObject(){
-
+    public GameObject arrowPrefab;
+    List<GameObject> highlights;
+    void HighlightObject(GameObject go){
+        
+        
     }
 }

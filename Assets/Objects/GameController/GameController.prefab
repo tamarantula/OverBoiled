@@ -74,7 +74,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8214608421181899337}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54ca3ee5f9ff0c644ba39d3cc3d9d57c, type: 3}
+  m_Script: {fileID: 11500000, guid: e3ed4ef36b78c8e45bbed24cbd16c819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
@@ -83,3 +83,5 @@ MonoBehaviour:
   cauldrons: []
   distilleries: []
   plates: []
+  curstage: 1
+  arrowPrefab: {fileID: 1232938721149194786, guid: 7f34d403057a50c449325260c8c52d9b, type: 3}
