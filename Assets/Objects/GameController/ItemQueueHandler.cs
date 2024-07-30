@@ -39,7 +39,19 @@ public class ItemQueueHandler : MonoBehaviour
     }    
 
     public bool trySubmit(GameObject item){
-        Debug.Log("Attempt to submit "+item.name);
+        QueueItem queue_to_del = null;
+        foreach(QueueItem qi in this.current_queue){
+            if(qi.result_item.name == item.name){
+                queue_to_del=qi;
+                break;
+            }
+        }
+        if(queue_to_del != null){
+            current_queue.Remove(queue_to_del);
+            uic.UpdateUI(current_queue);
+            //TODO: Update score
+            return true;
+        }
         return false;
     }
 }

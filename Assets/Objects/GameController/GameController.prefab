@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1208647316982431895}
   - component: {fileID: -3375991836793999675}
   - component: {fileID: -4442525878503867367}
+  - component: {fileID: 1697926095147838979}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -59,5 +60,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b31f78dbf6a4c3546b1226604a0bbe6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  queueListParent: {fileID: 0}
+  queueItemPrefab: {fileID: 0}
+  queueObjects: []
+--- !u!114 &1697926095147838979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214608421181899337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ca3ee5f9ff0c644ba39d3cc3d9d57c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
