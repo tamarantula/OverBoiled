@@ -11,6 +11,7 @@ public class BowlController : InteractableController
             var new_obj = Instantiate(supply_object,transform);
             new_obj.transform.localPosition = new Vector3(Random.Range(-0.2f,0.2f),0.3f,Random.Range(-0.2f,0.2f));
             new_obj.transform.rotation = Random.rotation;
+            Destroy(new_obj.GetComponent<ItemController>());
         }
     }
 

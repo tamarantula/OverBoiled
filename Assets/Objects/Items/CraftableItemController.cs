@@ -10,13 +10,13 @@ public class CraftableItemController : ItemController
     [SerializeField]
     private int currentOptionNum = -1;
 
-    private RecipeOption currentOption {
+    public RecipeOption currentOption {
         get { return currentOptionNum==-1?null:recipeOptions[currentOptionNum]; }
     }
 
     [SerializeField]
     private int currentStepNum = -1;
-    private RecipeStep currentStep {
+    public RecipeStep currentStep {
         get { return currentStepNum==-1?null:currentOption.steps[currentStepNum]; }
     }
     

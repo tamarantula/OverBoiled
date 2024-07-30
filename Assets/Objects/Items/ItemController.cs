@@ -10,9 +10,11 @@ public class ItemController : MonoBehaviour
     }
 
     public virtual bool onPlaceItem(GameObject newparent){
-        return true;
+        ContainerController newContainer = newparent.GetComponent<ContainerController>().GetContainer();
+        return newContainer.containerName == "table";
     }
     public virtual bool onRemoveItem(GameObject oldparent){
         return true;
     }
+    
 }

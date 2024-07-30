@@ -47,7 +47,7 @@ public class ItemQueueHandler : MonoBehaviour
         if(queue_to_del != null){
             current_queue.Remove(queue_to_del);
         }
-    }    
+    }
 
     public bool trySubmit(GameObject item){
         QueueItem queue_to_del = null;

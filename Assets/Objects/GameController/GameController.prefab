@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -3375991836793999675}
   - component: {fileID: -4442525878503867367}
   - component: {fileID: 5829974128540153816}
+  - component: {fileID: 5068679994957608982}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -85,3 +86,17 @@ MonoBehaviour:
   plates: []
   curstage: 1
   arrowPrefab: {fileID: 1232938721149194786, guid: 7f34d403057a50c449325260c8c52d9b, type: 3}
+--- !u!114 &5068679994957608982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8214608421181899337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0aedb27615ad342a21fcd02c35d496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsPerShadow: 45
+  shadowPrefab: {fileID: 1380123474672120095, guid: f85dfeb88cb25394cbb23f5cf238a5c8, type: 3}
