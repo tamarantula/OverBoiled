@@ -42,6 +42,7 @@ public class TutorialController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
     }
 
     void DoNextStage(){
@@ -62,9 +63,10 @@ public class TutorialController : MonoBehaviour
     }
 
     public GameObject arrowPrefab;
-    List<GameObject> highlights;
+    List<GameObject> highlights = new List<GameObject>();
     void HighlightObject(GameObject go){
-        
-        
+        var arrow = Instantiate(arrowPrefab,go.transform);
+        arrow.transform.localPosition = new Vector3(0,1,0.3f);
+        highlights.Add(arrow);
     }
 }
