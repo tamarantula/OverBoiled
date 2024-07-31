@@ -19,6 +19,13 @@ public class ItemQueueHandler : MonoBehaviour
         uic = GetComponent<UIController>();
     }
 
+    IEnumerator PlaySoundForSeconds(AudioSource source, float seconds) {
+        if((!source.isPlaying) && (source.time != 0)) source.UnPause();
+        else source.Play();
+        yield return new WaitForSeconds(seconds);
+        source.Pause();
+    }
+
     void Update(){
         if(gen_randomly){
             if(seconds_since_last_gen>0){
@@ -33,6 +40,10 @@ public class ItemQueueHandler : MonoBehaviour
                     expiry_time=Time.time+Random.Range(new_task.min_time,new_task.max_time),
                     result_item=new_task.input_item.GetComponent<CraftableItemController>().recipeOptions[new_task.item_path].result
                 });
+                var audioData = GetComponent<AudioSource>();
+                if(audioData != null){
+                    StartCoroutine(PlaySoundForSeconds(audioData,3));
+                }
                 uic.UpdateUI(current_queue);
             }
         }

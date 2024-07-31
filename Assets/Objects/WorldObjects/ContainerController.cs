@@ -22,6 +22,14 @@ public class ContainerController : InteractableController
             isItemContainer = childObject.tag != "InteractableObject";
         }
     }
+    IEnumerator PlaySoundForSeconds(AudioSource source, float seconds) {
+        
+        if((!source.isPlaying) && (source.time != 0)) source.UnPause();
+        else source.Play();
+
+        yield return new WaitForSeconds(seconds);
+        source.Pause();
+    }
 
     public override void OnPlayerInteract(PlayerController p){
         if(isItemContainer) this.OnPlayerInteractItem(p);
@@ -69,6 +77,8 @@ public class ContainerController : InteractableController
     }
 
     private bool OnItemPlaced(GameObject i){
+        var audioData = GetComponent<AudioSource>();
+        if(audioData != null) StartCoroutine(PlaySoundForSeconds(audioData,4));
         if(i.GetComponent<ItemController>() == null){
             return true;
         }else{

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  heheprefab: {fileID: 70512334129002440, guid: fbc4bdc8445384d4ebccf22856edf616, type: 3}
   seconds_to_next_check: 1
   grab_distance: 0.5
 --- !u!135 &-4467536576323269385
@@ -82,9 +83,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: adf10d7724ea53b4d8b9a5da21a6b143, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.5
   Loop: 0
   Mute: 0
   Spatialize: 0

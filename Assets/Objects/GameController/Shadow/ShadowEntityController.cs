@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShadowEntityController : MonoBehaviour
 {
     public GameObject target;
+    public GameObject heheprefab;
 
     public float seconds_to_next_check = 1;
 
@@ -30,9 +31,10 @@ public class ShadowEntityController : MonoBehaviour
             pos.y=0.5f;
             transform.position=pos;
             transform.rotation = Quaternion.LookRotation(target.transform.position-transform.position);
-            if(grab_distance>Vector3.Distance(transform.position,target.transform.position)){
+            if(grab_distance>Vector3.Distance(new Vector3(transform.position.x,0,transform.position.z),new Vector3(target.transform.position.x,0,target.transform.position.z))){
                 Destroy(target);
                 Destroy(this.gameObject);
+                Instantiate(heheprefab);
                 // Play HEHEHEHE sound
             }
         }
