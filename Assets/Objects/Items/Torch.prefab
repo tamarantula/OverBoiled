@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854a25f05c9f2ac4eb9a3cbf9aafac11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heheprefab: {fileID: 70512334129002440, guid: fbc4bdc8445384d4ebccf22856edf616, type: 3}
 --- !u!82 &8470471799550203873
 AudioSource:
   m_ObjectHideFlags: 0

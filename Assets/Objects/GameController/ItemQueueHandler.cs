@@ -19,11 +19,26 @@ public class ItemQueueHandler : MonoBehaviour
         uic = GetComponent<UIController>();
     }
 
-    IEnumerator PlaySoundForSeconds(AudioSource source, float seconds) {
+    IEnumerator PlaySoundForSeconds(float seconds) {
+        var source = GetComponent<AudioSource>();
+        if(source == null) yield break;
         if((!source.isPlaying) && (source.time != 0)) source.UnPause();
         else source.Play();
         yield return new WaitForSeconds(seconds);
         source.Pause();
+    }
+
+    void AddNewQueueTask(){
+        var new_task = potential_items[Random.Range(0,potential_items.Length)];
+        current_queue.Add(new QueueItem{
+            input_item=new_task.input_item,
+            item_path=new_task.item_path,
+            start_time=Time.time,
+            expiry_time=Time.time+Random.Range(new_task.min_time,new_task.max_time),
+            result_item=new_task.input_item.GetComponent<CraftableItemController>().recipeOptions[new_task.item_path].result
+        });
+        StartCoroutine(PlaySoundForSeconds(3));
+        uic.UpdateUI(current_queue);
     }
 
     void Update(){
@@ -32,19 +47,7 @@ public class ItemQueueHandler : MonoBehaviour
                 seconds_since_last_gen -= Time.deltaTime;
             }else{
                 seconds_since_last_gen = seconds_per_gen;
-                var new_task = potential_items[Random.Range(0,potential_items.Length)];
-                current_queue.Add(new QueueItem{
-                    input_item=new_task.input_item,
-                    item_path=new_task.item_path,
-                    start_time=Time.time,
-                    expiry_time=Time.time+Random.Range(new_task.min_time,new_task.max_time),
-                    result_item=new_task.input_item.GetComponent<CraftableItemController>().recipeOptions[new_task.item_path].result
-                });
-                var audioData = GetComponent<AudioSource>();
-                if(audioData != null){
-                    StartCoroutine(PlaySoundForSeconds(audioData,3));
-                }
-                uic.UpdateUI(current_queue);
+                AddNewQueueTask();
             }
         }
 
@@ -70,8 +73,7 @@ public class ItemQueueHandler : MonoBehaviour
         }
         if(queue_to_del != null){
             current_queue.Remove(queue_to_del);
-            uic.UpdateUI(current_queue);
-            //TODO: Update score
+            AddNewQueueTask();
             return true;
         }
         return false;

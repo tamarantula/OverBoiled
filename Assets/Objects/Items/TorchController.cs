@@ -7,6 +7,7 @@ public class TorchController : ItemController
 
     float seconds_to_next_check = 0.2f;
     float shadow_destroy_distance = 1f;
+    public GameObject heheprefab;
 
     AudioSource audioData = null;
 
@@ -27,6 +28,7 @@ public class TorchController : ItemController
         {
             if(shadow_destroy_distance>Vector3.Distance(new Vector3(transform.position.x,0,transform.position.z),new Vector3(sec.transform.position.x,0,sec.transform.position.z))){
                 Destroy(sec.gameObject);
+                Instantiate(heheprefab);
             }
         }
     }

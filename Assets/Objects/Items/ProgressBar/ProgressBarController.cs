@@ -17,7 +17,7 @@ public class ProgressBarController : MonoBehaviour
     }
 
     public void SetProgress(float progress){
-        progressSlider.value = progress;
+        if(progressSlider != null) progressSlider.value = progress;
     }
 
     public void SetHidden(bool hidden){
